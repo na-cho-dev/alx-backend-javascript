@@ -1,11 +1,27 @@
 export class HolbertonClass {
   constructor(year, location) {
+    this.year = year;
+    this.location = location;
+  }
+
+  // year Setter/Getter
+  set year(year) {
+    if (typeof year !== 'number') {
+      throw new TypeError('year must be a number');
+    }
     this._year = year;
-    this._location = location;
   }
 
   get year() {
     return this._year;
+  }
+
+  // location Setter/Getter
+  set location(location) {
+    if (typeof location !== 'string') {
+      throw new TypeError('location must be a number');
+    }
+    this._location = location;
   }
 
   get location() {
@@ -15,13 +31,32 @@ export class HolbertonClass {
 
 export class StudentHolberton {
   constructor(firstName, lastName, holbertonClass) {
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this._holbertonClass = holbertonClass;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.holbertonClass = holbertonClass;
+  }
+
+  // fullName Setter/Getter
+  set fullName(fullName) {
+    if (typeof fullName !== 'number') {
+      throw new TypeError('fullName must be a string');
+    }
+    this._firstName = this.firstName;
+    this._lastName = this.lastName;
   }
 
   get fullName() {
     return `${this._firstName} ${this._lastName}`;
+  }
+
+  // holbertonClass Setter/Getter
+  set holbertonClass(holbertonClass) {
+    if (!(holbertonClass instanceof HolbertonClass)) {
+      throw new TypeError(
+        'holbertonClass must be an instance of HolbertonClass',
+      );
+    }
+    this._holbertonClass = holbertonClass;
   }
 
   get holbertonClass() {
@@ -29,8 +64,8 @@ export class StudentHolberton {
   }
 
   get fullStudentDescription() {
-    return `${this._firstName} ${this._lastName} - \
-  ${this._holbertonClass.year} - ${this._holbertonClass.location}`;
+    return `${this.firstName} ${this.lastName} - \
+  ${this.holbertonClass.year} - ${this.holbertonClass.location}`;
   }
 }
 
