@@ -38,15 +38,16 @@ export class StudentHolberton {
 
   // fullName Setter/Getter
   set fullName(fullName) {
-    if (typeof fullName !== 'number') {
+    if (typeof fullName !== 'string') {
       throw new TypeError('fullName must be a string');
     }
-    this._firstName = this.firstName;
-    this._lastName = this.lastName;
+    const [first, last] = fullName.split(' ');
+    this.firstName = first; // Set the firstName
+    this.lastName = last; // Set the lastName
   }
 
   get fullName() {
-    return `${this._firstName} ${this._lastName}`;
+    return `${this.firstName} ${this.lastName}`;
   }
 
   // holbertonClass Setter/Getter
@@ -64,8 +65,7 @@ export class StudentHolberton {
   }
 
   get fullStudentDescription() {
-    return `${this.firstName} ${this.lastName} - \
-  ${this.holbertonClass.year} - ${this.holbertonClass.location}`;
+    return `${this.firstName} ${this.lastName} - ${this.holbertonClass.year} - ${this.holbertonClass.location}`;
   }
 }
 
