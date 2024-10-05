@@ -54,7 +54,7 @@ export class StudentHolberton {
   set holbertonClass(holbertonClass) {
     if (!(holbertonClass instanceof HolbertonClass)) {
       throw new TypeError(
-        'holbertonClass must be an instance of HolbertonClass'
+        'holbertonClass must be an instance of HolbertonClass',
       );
     }
     this._holbertonClass = holbertonClass;
