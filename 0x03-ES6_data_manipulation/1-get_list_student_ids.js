@@ -5,11 +5,7 @@ export default function getListStudentIds(getListStudents) {
     return [];
   }
 
-  const myArrayId = [];
-
-  for (const student of getListStudents) {
-    myArrayId.push(student.id);
-  }
+  const myArrayId = getListStudents.map((studentId) => studentId.id);
 
   return myArrayId;
 }
