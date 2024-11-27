@@ -11,17 +11,20 @@ function countStudents(path) {
     data.forEach((el) => {
       const student = el.split(',');
 
-      if (!obj[student[3]]) obj[student[3]] = [];
+      if (!obj[student[3]]) {
+        obj[student[3]] = [];
+      }
       obj[student[3]].push(student[0]);
     });
 
     for (const cls in obj) {
-      if (cls)
+      if (cls) {
         console.log(
           `Number of students in ${cls}: ${obj[cls].length}. List: ${obj[
             cls
-          ].join(', ')}`
+          ].join(', ')}`,
         );
+      }
     }
   } catch (err) {
     throw new Error('Cannot load the database');
